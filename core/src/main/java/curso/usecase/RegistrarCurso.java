@@ -1,7 +1,7 @@
 package curso.usecase;
 
 import curso.exception.ExceptionCurso;
-import curso.input.CreaterCurse;
+import curso.input.CreateCurse;
 import curso.modelo.Curso;
 import curso.modelo.Level;
 import curso.output.SaveBD;
@@ -9,7 +9,7 @@ import curso.output.SaveBD;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class RegistrarCurso implements CreaterCurse {
+public class RegistrarCurso implements CreateCurse {
     private SaveBD bd;
 
     public RegistrarCurso(SaveBD bd) {
@@ -17,9 +17,9 @@ public class RegistrarCurso implements CreaterCurse {
     }
 
     @Override
-    public boolean createCurso(UUID id, String name, LocalDate fecha_cierre_inscripcion, Level nivel)throws ExceptionCurso {
-        Curso c=Curso.factory(id, name, fecha_cierre_inscripcion, nivel);
-        if(bd.buscarCursoId(c.getId()))
+    public boolean createCurso(String name, LocalDate fecha_cierre_inscripcion, Level nivel)throws ExceptionCurso {
+        Curso c=Curso.factory(UUID.randomUUID(), name, fecha_cierre_inscripcion, nivel);
+        if(bd.buscarCursoName(c.getName()))
             throw new ExceptionCurso("El curso ya existe");
         return bd.saveCurso(c);
     }

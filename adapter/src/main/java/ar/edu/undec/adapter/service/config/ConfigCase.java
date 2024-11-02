@@ -1,6 +1,7 @@
 package ar.edu.undec.adapter.service.config;
 
-import curso.input.CreaterCurse;
+import curso.input.CreateCurse;
+
 
 import curso.output.SaveBD;
 import curso.usecase.RegistrarCurso;
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConfigCase {
     @Bean
-    public CreaterCurse createrCurse(SaveBD bd) {
+    public CreateCurse createrCurse(SaveBD bd) {
         return new RegistrarCurso(bd);
     }
 }

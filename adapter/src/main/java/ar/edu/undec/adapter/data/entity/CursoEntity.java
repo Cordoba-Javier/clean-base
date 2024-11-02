@@ -21,7 +21,7 @@ public class CursoEntity {
 
     public CursoEntity() {}
 
-    private CursoEntity(UUID id, String name, LocalDate fecha_cierre_inscripcion, Level nivel) {
+    public CursoEntity(UUID id, String name, LocalDate fecha_cierre_inscripcion, Level nivel) {
         this.id = id;
         this.name = name;
         this.fecha_cierre_inscripcion = fecha_cierre_inscripcion;

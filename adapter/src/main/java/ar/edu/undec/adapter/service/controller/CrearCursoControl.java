@@ -1,6 +1,7 @@
 package ar.edu.undec.adapter.service.controller;
 
-import curso.input.CreaterCurse;
+import curso.input.CreateCurse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,21 +10,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ar.edu.undec.adapter.service.dto.CursoDTO;
 
+import java.net.URI;
+
 @RestController
 @RequestMapping("curso")
 public class CrearCursoControl {
-    private CreaterCurse createrCurse;
+    private CreateCurse createrCurse;
 
     @Autowired
-    public CrearCursoControl(CreaterCurse createrCurse) {
+    public CrearCursoControl(CreateCurse createrCurse) {
         this.createrCurse = createrCurse;
     }
 
     @PostMapping
     public ResponseEntity<?> crearCurso(@RequestBody CursoDTO curso) {
-        if(createrCurse.createCurso(curso.getId(),curso.getName(),curso.getFecha_cierre_inscripcion(),curso.getNivel())){
+        try {
+            createrCurse.createCurso(curso.getName(),curso.getFecha_cierre_inscripcion(),curso.getNivel());
             return ResponseEntity.ok().build();
-        }else{
-        return ResponseEntity.badRequest().body("No pudo crear curso");}
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("No pudo crear curso");
+        }
+
     }
 }

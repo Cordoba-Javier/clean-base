@@ -1,7 +1,6 @@
 package ar.edu.undec.adapter.data.repository;
 
 import ar.edu.undec.adapter.data.crud.CreateCurseCrud;
-import ar.edu.undec.adapter.data.entity.CursoEntity;
 import ar.edu.undec.adapter.data.mapper.Mapper;
 import curso.modelo.Curso;
 import curso.output.SaveBD;
@@ -21,12 +20,16 @@ public class RegistarCursoRepository implements SaveBD {
 
     @Override
     public boolean saveCurso(Curso curso) {
-            return curseCrud.save(Mapper.dataMapper(curso)).getId()!=null;
-
+        try {
+            curseCrud.save(Mapper.dataMapper(curso));
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
-    public boolean buscarCursoId(UUID id) {
-        return curseCrud.existeCurso(id);
+    public boolean buscarCursoName(String name) {
+        return curseCrud.existeCurso(name);
     }
 }

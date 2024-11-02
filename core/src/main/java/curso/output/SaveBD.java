@@ -6,5 +6,5 @@ import java.util.UUID;
 
 public interface SaveBD {
     boolean saveCurso(Curso curso);
-    boolean buscarCursoId(UUID id);
+    boolean buscarCursoName(String name);
 }

@@ -18,7 +18,7 @@ public class CursoDTO {
     @JsonProperty("nivel")
     private Level nivel;
 
-    private CursoDTO(UUID id, String name, LocalDate fecha_cierre_inscripcion, Level nivel) {
+    public CursoDTO(UUID id, String name, LocalDate fecha_cierre_inscripcion, Level nivel) {
         this.id = id;
         this.name = name;
         this.fecha_cierre_inscripcion = fecha_cierre_inscripcion;
