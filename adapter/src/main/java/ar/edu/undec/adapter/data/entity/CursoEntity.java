@@ -2,6 +2,7 @@ package ar.edu.undec.adapter.data.entity;
 
 import curso.modelo.Curso;
 import curso.modelo.Level;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -11,9 +12,11 @@ import java.util.UUID;
 public class CursoEntity {
     @Id
     private UUID id;
-
+    @Column(name="nombre")
     private String name;
+    @Column(name="fecha_inscripcion")
     private LocalDate fecha_cierre_inscripcion;
+    @Column(name="nivel")
     private Level nivel;
 
     public CursoEntity() {}

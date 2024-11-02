@@ -4,7 +4,6 @@ package usecase;
 import curso.exception.ExceptionCurso;
 import curso.modelo.Curso;
 import curso.modelo.Level;
-import curso.output.Consulta;
 import curso.output.SaveBD;
 import curso.usecase.RegistrarCurso;
 import org.junit.jupiter.api.Assertions;
@@ -24,13 +23,12 @@ public class RegistrarCursoTest {
 
     private UUID cursoId= UUID.randomUUID();
     @Mock
-    private Consulta consu;
     private SaveBD bd;
     private RegistrarCurso registrarCurso;
 
     @BeforeEach
     public void setUp() {
-        registrarCurso=new RegistrarCurso(consu, bd);
+        registrarCurso=new RegistrarCurso(bd);
     }
 
     @Test

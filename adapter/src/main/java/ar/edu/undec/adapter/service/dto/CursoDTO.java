@@ -1,11 +1,13 @@
 package ar.edu.undec.adapter.service.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import curso.modelo.Level;
 
 import java.time.LocalDate;
 import java.util.UUID;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CursoDTO {
     @JsonProperty("id")
     private final UUID id;
