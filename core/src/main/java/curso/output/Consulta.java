@@ -1,5 +1,7 @@
 package curso.output;
 
+import java.util.UUID;
+
 public interface Consulta {
-    boolean buscarCursoId(String id);
+    boolean buscarCursoName(UUID id);
 }

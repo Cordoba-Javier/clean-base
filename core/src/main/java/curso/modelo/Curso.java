@@ -3,33 +3,44 @@ package curso.modelo;
 import curso.exception.ExceptionCurso;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Curso {
-   private final String id;
-   private final String nombre;
-   private  final LocalDate fecha_cierre_inscripcion;
+   private UUID id;
+   private String name;
+   private LocalDate fecha_cierre_inscripcion;
    private Level nivel;
 
-   private Curso(String id, String nombre, LocalDate fecha_cierre_inscripcion, Level nivel) {
+   private Curso(UUID id, String name, LocalDate fecha_cierre_inscripcion, Level nivel) {
        this.id = id;
-       this.nombre = nombre;
+       this.name = name;
        this.fecha_cierre_inscripcion = fecha_cierre_inscripcion;
        this.nivel = nivel;
    }
 
-   public static Curso factory(String id, String nombre, LocalDate fecha_cierre_inscripcion, Level nivel) throws ExceptionCurso{
-       if (id == null || id.isEmpty())
+   public static Curso factory(UUID id, String name, LocalDate fecha_cierre_inscripcion, Level nivel) throws ExceptionCurso{
+       if (id == null )
                throw new ExceptionCurso("id nulo");
-       if (nombre==null || nombre.isEmpty())
+       if (name ==null || name.isEmpty())
                throw new ExceptionCurso("nombre nulo");
-       if (fecha_cierre_inscripcion == null  || fecha_cierre_inscripcion.isAfter(LocalDate.now()))
+       if (fecha_cierre_inscripcion == null  || fecha_cierre_inscripcion.isBefore(LocalDate.now()))
                throw new ExceptionCurso("fecha_cierre_inscripcion no valida");
        if (nivel == null)
            throw new ExceptionCurso("nivel nulo ");
-       return new Curso(id, nombre, fecha_cierre_inscripcion, nivel);
+       return new Curso(id, name, fecha_cierre_inscripcion, nivel);
    }
 
-   public String getId() {
+   public UUID getId() {
        return id;
+   }
+
+   public String getName() {
+       return name;
+   }
+   public LocalDate getFecha_cierre_inscripcion() {
+       return fecha_cierre_inscripcion;
+   }
+   public Level getNivel() {
+       return nivel;
    }
 }
