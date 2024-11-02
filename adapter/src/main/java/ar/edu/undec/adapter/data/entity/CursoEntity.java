@@ -1,4 +1,4 @@
-package data.entity;
+package ar.edu.undec.adapter.data.entity;
 
 import curso.modelo.Curso;
 import curso.modelo.Level;

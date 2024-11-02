@@ -1,6 +1,6 @@
-package data.crud;
+package ar.edu.undec.adapter.data.crud;
 
-import data.entity.CursoEntity;
+import ar.edu.undec.adapter.data.entity.CursoEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

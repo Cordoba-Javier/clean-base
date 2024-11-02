@@ -1,4 +1,4 @@
-package service.dto;
+package ar.edu.undec.adapter.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import curso.modelo.Level;

@@ -1,7 +1,7 @@
-package data.mapper;
+package ar.edu.undec.adapter.data.mapper;
 
 import curso.modelo.Curso;
-import data.entity.CursoEntity;
+import ar.edu.undec.adapter.data.entity.CursoEntity;
 
 public class Mapper {
     public static Curso coreMapper(CursoEntity cursoEntity) {

@@ -1,4 +1,4 @@
-package service.config;
+package ar.edu.undec.adapter.service.config;
 
 import curso.input.CreaterCurse;
 import curso.output.Consulta;
